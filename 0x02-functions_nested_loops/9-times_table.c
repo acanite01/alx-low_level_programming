@@ -1,29 +1,33 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * times_table - prints time table
- *
- * Description: to print time table
- * Return: void
- */
-
+*times_table -> time table
+*/
 void times_table(void)
 {
-int num, nums;
+	int x, y, k;
 
-
-for (num = 0; num <= 9; num++)
-{
-for (nums = 0; nums <= 9; nums++)
-{
-printf("%2d", num * nums);
-if (nums != 9)
-{
-putchar(',');
-putchar('.');
-}
-}
-putchar('\n');
-}
+	for (x = 0; x < 10; x++)
+	{
+		for (y = 0; y < 10; y++)
+		{
+			k = x * y;
+			if (y == 0)
+				_putchar(k + '0');
+			if (y != 0 && k < 10)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(k + '0');
+			} else if (k >= 10)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar((k / 10) + '0');
+				_putchar((k % 10) + '0');
+			}
+		}
+		_putchar('\n');
+	}
 }

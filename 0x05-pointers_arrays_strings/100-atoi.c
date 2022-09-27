@@ -17,14 +17,14 @@ int _atoi(char *s)
 	{
 		if (s[i] == '-')
 			p *= -1;
-				
+
 		if (s[i] > 47 && s[i] < 58)
 		{
 			if (z < 0)
 				z = (z * 10) - (s[i] - '0');
 			else
 				z = (s[i] - '0') * -1;
-						
+
 			if (s[i + 1] < 48 || s[i + 1] > 57)
 				break;
 		}

@@ -1,30 +1,32 @@
 #include "main.h"
 
 /**
- * _strncat - Concatenates two stings
- * @dest: Destination string
- * @src: the source of the string
- * @n: number of bytes to look
- * Return: Returns a pointer to the resulting string dest
+ * *_strncat - two words
+ * Description: check main
+ * @dest: pointer to char param
+ * @src: pointer to char param
+ * @n: int parameter
+ * Return: *dest
  */
 
 char *_strncat(char *dest, char *src, int n)
 {
-	int i;
-	int j;
+	int i, m;
 
-	i = 0;
-	while (dest[i] != '\0')
+	m = 0;
+	for (i = 0; i < 1000; i++)
 	{
-		i++;
+		if (dest[i] == '\0')
+		{
+			break;
+		}
+		m++;
 	}
-	j = 0;
-	while (j < n && src[j] != '\0')
+
+	for (i = 0; src[i] != '\0' && i < n; i++)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest[m + i] = src[i];
 	}
-	dest[i] = '\0';
+	dest[m + i] = '\0';
 	return (dest);
 }

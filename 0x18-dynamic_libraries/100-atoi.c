@@ -1,36 +1,31 @@
 #include "main.h"
 
 /**
- * _atoi - Convert strings to integers
- * @s: character
- * Return: 0 (success)
+ * _atoi - int
+ * @s: pointer
+ * Return: int
  */
 
 int _atoi(char *s)
 {
 	int i;
-	int z, p;
+	int res = 0;
+	int sig = -1;
+	int brk = 0;
 
-	z = 0;
-	p = -1;
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] == '-')
-			p *= -1;
-
-		if (s[i] > 47 && s[i] < 58)
+			sig = sig * -1;
+		if (s[i] >= '0' && s[i] <= '9')
 		{
-			if (z < 0)
-				z = (z * 10) - (s[i] - '0');
-			else
-				z = (s[i] - '0') * -1;
-
-			if (s[i + 1] < 48 || s[i + 1] > 57)
-				break;
+			res = res * 10;
+			res -= (s[i] - '0');
+			brk = 1;
 		}
+		else if (brk == 1)
+			break;
 	}
-	if (p < 0)
-		z *= -1;
-
-	return (z);
+	res = sig * res;
+	return (res);
 }
